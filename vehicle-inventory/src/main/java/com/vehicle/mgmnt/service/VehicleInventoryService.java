@@ -8,13 +8,13 @@ public interface VehicleInventoryService {
 
 	List<Vehicle> listAllVehicle();
 
-	Vehicle findById(Long id);
-
-	Vehicle findByModel(String model);
+	Vehicle findByModelId(String model);
 
 	void save(Vehicle vehicle);
 
 	void saveAndFlush(Vehicle currentVehicle);
 
 	void delete(Long id);
+
+	Vehicle findById(Long id);
 }

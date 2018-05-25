@@ -8,6 +8,8 @@ import javax.persistence.Enumerated;
 @Entity
 public class Vehicle extends AbstractEntity {
 
+	@Column(name = "MODEL_ID", nullable = false, unique = true)
+	private String modelId;
 	@Column(name = "MAKE_YEAR", nullable = false)
 	private int year;
 	@Column(name = "MAKE", nullable = false)
@@ -69,6 +71,14 @@ public class Vehicle extends AbstractEntity {
 
 	public void setVehicleType(VehicleTypeEnum vehicleType) {
 		this.vehicleType = vehicleType;
+	}
+
+	public String getModelId() {
+		return modelId;
+	}
+
+	public void setModelId(String modelId) {
+		this.modelId = modelId;
 	}
 
 }

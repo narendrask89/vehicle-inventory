@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable {
 
@@ -22,16 +24,19 @@ public abstract class AbstractEntity implements Serializable {
     @Column(updatable = false)
     protected Long id;
 
+    @JsonIgnore
     @Column(name = "CREATED_AT", nullable = false)
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     protected Date createdAt;
 
+    @JsonIgnore
     @Column(name = "MODIFIED_AT", nullable = false)
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     protected Date modifiedAt;
 
+    @JsonIgnore
     @Version
     public int version;
 

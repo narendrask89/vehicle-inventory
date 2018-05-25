@@ -20,33 +20,7 @@ public class VehicleInventoryServiceImpl implements VehicleInventoryService {
 
 	@Override
 	public List<Vehicle> listAllVehicle() {
-		return null;
-	}
-
-	/**
-	 *
-	 * @param entity
-	 * @return
-	 */
-	public Vehicle create(Vehicle entity) {
-		return vehicleInventoryRepository.save(entity);
-	}
-
-	/**
-	 *
-	 * @param id
-	 * @return
-	 */
-	public Vehicle read(Long id) {
-		return vehicleInventoryRepository.findOne(id);
-	}
-
-	/**
-	 *
-	 * @param entity
-	 */
-	public void update(Vehicle entity) {
-		vehicleInventoryRepository.save(entity);
+		return (List<Vehicle>) vehicleInventoryRepository.findAll();
 	}
 
 	/**
@@ -67,29 +41,25 @@ public class VehicleInventoryServiceImpl implements VehicleInventoryService {
 	}
 
 	@Override
-	public Vehicle findById(Long id) {
-		// TODO Auto-generated method stub
-		return vehicleInventoryRepository.findOne(id);
-	}
-
-	@Override
-	public Vehicle findByModel(String model) {
-		// TODO Auto-generated method stub
-		return null;
+	public Vehicle findByModelId(String model) {
+		return vehicleInventoryRepository.findByModelId(model);
 	}
 
 	@Override
 	public void save(Vehicle vehicle) {
-		// TODO Auto-generated method stub
 		vehicleInventoryRepository.save(vehicle);
 		
 	}
 
 	@Override
 	public void saveAndFlush(Vehicle currentVehicle) {
-		// TODO Auto-generated method stub
 		vehicleInventoryRepository.save(currentVehicle);
 		
+	}
+
+	@Override
+	public Vehicle findById(Long id) {
+		return vehicleInventoryRepository.findOne(id);
 	}
 
 }
