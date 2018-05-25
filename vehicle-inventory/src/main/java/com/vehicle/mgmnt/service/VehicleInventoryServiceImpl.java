@@ -31,11 +31,7 @@ public class VehicleInventoryServiceImpl implements VehicleInventoryService {
 		vehicleInventoryRepository.delete(id);
 	}
 
-	/**
-	 *
-	 * @param filter
-	 * @return
-	 */
+	
 	public long count() {
 		return vehicleInventoryRepository.count();
 	}
