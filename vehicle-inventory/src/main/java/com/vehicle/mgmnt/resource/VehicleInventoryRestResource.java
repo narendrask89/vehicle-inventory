@@ -93,10 +93,10 @@ public class VehicleInventoryRestResource {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Vehicle> deleteUser(@PathVariable("id") final Long id) {
+	public ResponseEntity<Vehicle> deleteVehicle(@PathVariable("id") final Long id) {
 		logger.info("Deleting Vehicle with id {}", id);
-		Vehicle user = vehicleInventoryService.findById(id);
-		if (user == null) {
+		Vehicle vehicle = vehicleInventoryService.findById(id);
+		if (vehicle == null) {
 			logger.error("Unable to delete. Vehhicle with id {} not found.", id);
 			return new ResponseEntity<Vehicle>(
 					new CustomErrorType("Unable to delete. Vehicle with id " + id + " not found."),
